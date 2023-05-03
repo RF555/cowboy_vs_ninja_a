@@ -2,70 +2,91 @@
 #define TEAM_HPP
 
 #include <string>
+#include <vector>
+
+#include "Characters.hpp"
 
 using namespace std;
 namespace ariel {
-    class Point {
-        double x, y;
-    public:
-        Point();
+    /**
+     * Iteration order:
+     *      1. all cowboys (FIFO).
+     *      2. all ninjas (FIFO).
+     */
+    class Team {
 
-        Point(double _x, double y);
+        Character *_leader;
+        vector<Character> members;
 
-        /**
-         * @param _p A point.
-         * @return Distance between the 2 points.
-         */
-        double distance(Point _p);
-
-        void print();
-
-        /**
-         * Find the closest point to 'dest', that is not further then 'len' from 'src'.
-         * @param src Source point.
-         * @param dest Destination point.
-         * @param len Distance from the source point.
-         * @return A point between 'src' and 'dest'.
-         */
-        Point moveTowards(Point src, Point dest, double len);
-
-    };
-
-
-    class Character {
-        Point _location;
-        int _lives;
-        string _name;
+//        vector<Cowboy> _cowboys;
+//        vector<Ninja> _ninjas;
 
     public:
+        Team();
 
+        Team(Character &leader);
 
-        /**
-         * @return Is the character alive (has more then 0 lives).
-         */
-        bool isAlive();
+        Team(Team const &_other);
 
-        /**
-         * @param _other Pointer to another character.
-         * @return Distance between the 2 characters.
-         */
-        double distance(Character *_other);
+        Team(Team &&_other) noexcept;
+
+        ~Team();
 
         /**
-         * Reduces the character's lives by the number of hits.
-         * @param n Number of hits.
+         * Adds the Character to the team.
+         * @param member Reference to a Character.
          */
-        void hit(int n);
+        void add(Character &member);
 
         /**
-         * @return The name of the character.
+         *
+         * @param enemies Reference to the attacked Team.
          */
-        string getName();
+        void attack(Team &enemies);
 
+        /**
+         * @return The number of members still alive.
+         */
+        int stillAlice();
 
+        /**
+         * Prints all members of the team.
+         */
         void print();
 
+        Team &operator=(Team const &_other);
     };
 
+    /**
+     * Iteration order: FIFO (without distinguishing between cowboys and ninjas)
+     */
+    class Team2 : public Team {
+    public:
+        Team2();
+
+        Team2(Character &leader);
+
+        Team2(Team2 const &_other);
+
+        Team2(Team2 &&_other) noexcept;
+
+        ~Team2();
+    };
+
+    /**
+     * Iteration order: ???
+     */
+    class SmartTeam : public Team {
+    public:
+        SmartTeam();
+
+        SmartTeam(Character &leader);
+
+        SmartTeam(Team2 const &_other);
+
+        SmartTeam(Team2 &&_other) noexcept;
+
+        ~SmartTeam();
+    };
 }
 #endif //TEAM_HPP
