@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "Characters.hpp"
+#include "Character.hpp"
 
 using namespace std;
 namespace ariel {
