@@ -48,6 +48,13 @@ namespace ariel {
         string getName();
 
 
+        /**
+         * Prints the name of the Character, number of lives left AND it's position (as a Point).
+         *      IF Character is dead ==> the Character's name will be in parenthesis and lives left won't be printed.
+         *
+         *      Example (living Character): <name>, 100, (10,3)
+         *      Example (dead Character): (<name>), (10,3)
+         */
         void print();
 
         Character &operator=(Character const &_other);

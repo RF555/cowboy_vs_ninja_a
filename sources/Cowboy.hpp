@@ -25,6 +25,11 @@ namespace ariel {
         ~Cowboy();
 
         /**
+         * Prints the Cowboy AS Character with 'C' before it's name.
+         */
+        void print();
+
+        /**
          * Shoot the enemy - IF the cowboy is alive AND has bullets left:
          *                      subtract 10 lives from the enemy.
          *                      subtract 1 bullet from the cowboy.

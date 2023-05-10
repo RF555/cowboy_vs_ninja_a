@@ -21,6 +21,10 @@ namespace ariel {
          */
         double distance(Point _p);
 
+        /**
+         * Prints the x and y coordinates inside of parenthesis.
+         *      Example: (x,y)
+         */
         void print();
 
         /**
