@@ -4,7 +4,10 @@
 #include <string>
 #include <vector>
 
-#include "Character.hpp"
+#include "Cowboy.hpp"
+#include "OldNinja.hpp"
+#include "YoungNinja.hpp"
+#include "TrainedNinja.hpp"
 
 using namespace std;
 namespace ariel {
