@@ -19,7 +19,7 @@ namespace ariel {
 
         Ninja(Ninja &&_other) noexcept;
 
-        ~Ninja();
+        virtual ~Ninja();
 
         /**
          * Prints the Ninja AS Character with 'N' before it's name.

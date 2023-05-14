@@ -22,7 +22,7 @@ namespace ariel {
 
         Cowboy(Cowboy &&_other) noexcept;
 
-        ~Cowboy();
+        virtual ~Cowboy();
 
         /**
          * Prints the Cowboy AS Character with 'C' before it's name.

@@ -33,7 +33,7 @@ namespace ariel {
 
         Team(Team &&_other) noexcept;
 
-        ~Team();
+        virtual ~Team();
 
         /**
          * Adds the Character to the team.

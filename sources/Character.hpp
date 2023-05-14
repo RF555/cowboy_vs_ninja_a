@@ -23,7 +23,7 @@ namespace ariel {
 
         Character(Character &&_other) noexcept;
 
-        ~Character();
+        virtual ~Character();
 
         /**
          * @return Is the character alive (has more then 0 lives).
