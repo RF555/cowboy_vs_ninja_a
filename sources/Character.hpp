@@ -28,7 +28,7 @@ namespace ariel {
         /**
          * @return Is the character alive (has more then 0 lives).
          */
-        bool isAlive();
+        virtual bool isAlive();
 
         /**
          * @param _other Reference to another character.
@@ -40,12 +40,12 @@ namespace ariel {
          * Reduces the character's lives by the number of hits.
          * @param n Number of hits.
          */
-        void hit(int n);
+        virtual void hit(int n);
 
         /**
          * @return The name of the character.
          */
-        string getName();
+        virtual string getName();
 
 
         /**
@@ -55,9 +55,9 @@ namespace ariel {
          *      Example (living Character): <name>, 100, (10,3)
          *      Example (dead Character): (<name>), (10,3)
          */
-        void print();
+        virtual void print();
 
-        Character &operator=(Character const &_other);
+        virtual Character &operator=(Character const &_other);
 
     };
 

@@ -36,25 +36,25 @@ namespace ariel {
          * Adds the Character to the team.
          * @param member Reference to a Character.
          */
-        void add(Character &member);
+        virtual void add(Character &member);
 
         /**
          *
          * @param enemies Reference to the attacked Team.
          */
-        void attack(Team &enemies);
+        virtual void attack(Team &enemies);
 
         /**
          * @return The number of members still alive.
          */
-        int stillAlice();
+        virtual int stillAlice();
 
         /**
          * Prints all members of the team.
          */
-        void print();
+        virtual void print();
 
-        Team &operator=(Team const &_other);
+        virtual Team &operator=(Team const &_other);
     };
 
     /**

@@ -27,7 +27,7 @@ namespace ariel {
         /**
          * Prints the Cowboy AS Character with 'C' before it's name.
          */
-        void print();
+        virtual void print();
 
         /**
          * Shoot the enemy - IF the cowboy is alive AND has bullets left:
@@ -35,17 +35,17 @@ namespace ariel {
          *                      subtract 1 bullet from the cowboy.
          * @param enemy Reference to an enemy.
          */
-        void shoot(Character &enemy);
+        virtual void shoot(Character &enemy);
 
         /**
          * @return True if the cowboy has bullets left.
          */
-        bool hasboolets();
+        virtual bool hasboolets();
 
         /**
          * Reloads 6 bullets.
          */
-        void reload();
+        virtual void reload();
 
     };
 
