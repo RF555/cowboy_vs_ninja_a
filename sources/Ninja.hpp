@@ -22,22 +22,22 @@ namespace ariel {
         virtual ~Ninja();
 
         /**
-         * Prints the Ninja AS Character with 'N' before it's name.
+         * @return A string of the Ninja AS Character with 'N' before it's name.
          */
-        virtual void print();
+        string print();
 
         /**
          * Moves the ninja towards the enemy the distance equivalent to it's speed.
          * @param enemy Reference of an enemy to move towards to.
          */
-        virtual void move(Character &enemy);
+        virtual void move(Character *enemy);
 
         /**
          * Slush the enemy - IF the ninja is alive AND is less then (or equal) 1m from the enemy:
          *                      subtract 40 lives from the enemy.
          * @param enemy Reference to an enemy.
          */
-        virtual void slash(Character &enemy);
+        virtual void slash(Character *enemy);
     };
 
 }

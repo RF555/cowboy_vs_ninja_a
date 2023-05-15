@@ -9,9 +9,12 @@
 using namespace std;
 namespace ariel {
     class Character {
+    private:
         Point _location;
         int _lives;
         string _name;
+
+        virtual ostream &toPrint(ostream &output) const = 0;
 
     public:
 
@@ -24,6 +27,13 @@ namespace ariel {
         Character(Character &&_other) noexcept;
 
         virtual ~Character();
+
+        Character &operator=(const Character &_other);
+
+        // I/O operations:
+        friend std::ostream &operator<<(ostream &output, const Character *_other);
+
+//        friend std::istream &operator>>(istream &input, Character *_other);
 
         /**
          * @return Is the character alive (has more then 0 lives).
@@ -49,15 +59,15 @@ namespace ariel {
 
 
         /**
-         * Prints the name of the Character, number of lives left AND it's position (as a Point).
-         *      IF Character is dead ==> the Character's name will be in parenthesis and lives left won't be printed.
          *
-         *      Example (living Character): <name>, 100, (10,3)
-         *      Example (dead Character): (<name>), (10,3)
+         * @return  A string of the name of the Character, number of lives left AND it's position (as a Point).
+         *          IF Character is dead ==> the Character's name will be in parenthesis and lives left won't be printed.
+         *
+         *          Example (living Character): <name>, 100, (10,3)
+         *          Example (dead Character): (<name>), (10,3)
          */
-        virtual void print();
+        virtual string print() = 0;
 
-        virtual Character &operator=(Character const &_other);
 
     };
 

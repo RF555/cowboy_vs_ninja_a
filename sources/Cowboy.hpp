@@ -5,7 +5,10 @@
 
 namespace ariel {
     class Cowboy : public Character {
+    private:
         int n_bullets;
+
+        virtual ostream &toPrint(ostream &output) const;
 
     public:
 
@@ -25,9 +28,9 @@ namespace ariel {
         virtual ~Cowboy();
 
         /**
-         * Prints the Cowboy AS Character with 'C' before it's name.
+         * @return A string of the Cowboy AS Character with 'C' before it's name.
          */
-        virtual void print();
+        string print();
 
         /**
          * Shoot the enemy - IF the cowboy is alive AND has bullets left:
@@ -35,7 +38,7 @@ namespace ariel {
          *                      subtract 1 bullet from the cowboy.
          * @param enemy Reference to an enemy.
          */
-        virtual void shoot(Character &enemy);
+        virtual void shoot(Character *enemy);
 
         /**
          * @return True if the cowboy has bullets left.

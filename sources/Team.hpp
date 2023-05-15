@@ -27,6 +27,8 @@ namespace ariel {
     public:
         Team();
 
+        Team(Character *leader);
+
         Team(Character &leader);
 
         Team(Team const &_other);
@@ -39,7 +41,13 @@ namespace ariel {
          * Adds the Character to the team.
          * @param member Reference to a Character.
          */
-        virtual void add(Character &member);
+        virtual void add(Character *member);
+
+        /**
+         *
+         * @param enemies Pointer to the attacked Team.
+         */
+        virtual void attack(Team *enemies);
 
         /**
          *
@@ -50,12 +58,13 @@ namespace ariel {
         /**
          * @return The number of members still alive.
          */
-        virtual int stillAlice();
+        virtual int stillAlive();
 
         /**
-         * Prints all members of the team.
+         *
+         * @return A string of all members of the team.
          */
-        virtual void print();
+        virtual string print();
 
         virtual Team &operator=(Team const &_other);
     };
