@@ -30,7 +30,7 @@ namespace ariel {
         /**
          * @return A string of the Cowboy AS Character with 'C' before it's name.
          */
-        string print();
+        virtual string print();
 
         /**
          * Shoot the enemy - IF the cowboy is alive AND has bullets left:

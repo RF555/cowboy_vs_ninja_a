@@ -5,7 +5,10 @@
 
 namespace ariel {
     class Ninja : public Character {
+    private:
         int speed;
+
+        virtual ostream &toPrint(ostream &output) const;
 
     public:
 
