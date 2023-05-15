@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Point.hpp"
 
 namespace ariel {
@@ -17,13 +19,14 @@ namespace ariel {
 
     Point::~Point() {}
 
-    double Point::distance(Point _point2) {
-        return 0;
+    double Point::distance(Point &_point2) {
+        return sqrt((this->getX() - _point2.getX()) * (this->getX() - _point2.getX()) +
+                    (this->getY() - _point2.getY()) * (this->getY() - _point2.getY()));
     }
 
     std::string Point::print() { return string(); }
 
-    Point Point::moveTowards(Point src, Point dest, double len) {
+    Point Point::moveTowards(Point &src, Point &dest, double len) {
         return Point();
     }
 
@@ -33,5 +36,13 @@ namespace ariel {
 
     Point::operator std::string() const {
         return string("(" + to_string(this->x_coordinate) + "," + to_string(this->y_coordinate) + ")");
+    }
+
+    double Point::getX() const {
+        return x_coordinate;
+    }
+
+    double Point::getY() const {
+        return y_coordinate;
     }
 }
