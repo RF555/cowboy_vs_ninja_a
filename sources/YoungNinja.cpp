@@ -2,7 +2,8 @@
 
 namespace ariel {
 
-    YoungNinja::YoungNinja() {}
+    YoungNinja::YoungNinja():
+            Ninja(100, 14) {}
 
     YoungNinja::YoungNinja(const string &name, Point point)  :
             Ninja(name, point, 100, 14) {}
