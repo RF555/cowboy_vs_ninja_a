@@ -27,6 +27,8 @@ namespace ariel {
 
         virtual ~Cowboy();
 
+        int getNBullets() const;
+
         /**
          * @return A string of the Cowboy AS Character with 'C' before it's name.
          */

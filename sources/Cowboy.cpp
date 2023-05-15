@@ -39,4 +39,8 @@ namespace ariel {
     Cowboy::operator std::string() const {
         return "C " + Character::operator std::string();
     }
+
+    int Cowboy::getNBullets() const {
+        return n_bullets;
+    }
 }
