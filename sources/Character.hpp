@@ -23,7 +23,7 @@ namespace ariel {
 
         explicit Character(int lives);
 
-        Character(const string &name, Point _point, int lives);
+        Character(const string &name, Point &_point, int lives);
 
         Character(Character const &_other);
 

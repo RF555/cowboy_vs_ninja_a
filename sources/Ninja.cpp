@@ -6,6 +6,10 @@ namespace ariel {
             Character(),
             _speed(0) {}
 
+    Ninja::Ninja(int lives, int speed) :
+            Character(lives),
+            _speed(0) {}
+
     Ninja::Ninja(const string &name, Point &point, int lives, int speed) :
             Character(name, point, lives), _speed(0) {}
 
