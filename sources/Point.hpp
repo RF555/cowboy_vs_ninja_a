@@ -10,7 +10,7 @@ namespace ariel {
 
         Point(double _x_coordinate, double _y_coordinate);
 
-        Point(Point &_other);
+        Point(Point const &_other);
 
         Point(Point &&_other) noexcept;
 

@@ -9,7 +9,7 @@ namespace ariel {
             x_coordinate(_x_coordinate),
             y_coordinate(_y_coordinate) {}
 
-    Point::Point(Point &_other) :
+    Point::Point(Point const &_other) :
             x_coordinate(_other.x_coordinate),
             y_coordinate(_other.y_coordinate) {}
 
