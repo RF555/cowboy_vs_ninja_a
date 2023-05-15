@@ -7,8 +7,13 @@ namespace ariel {
             _lives(0),
             _name("None") {}
 
-    Character::Character(string &name, Point _point, int lives) :
-            _location(_point),
+    Character::Character(int lives) :
+            _location(Point()),
+            _lives(lives),
+            _name("None") {}
+
+    Character::Character(string &name, Point point, int lives) :
+            _location(point),
             _lives(lives),
             _name(name) {}
 

@@ -20,6 +20,8 @@ namespace ariel {
 
         Character();
 
+        Character::Character(int lives);
+
         Character(string &name, Point _point, int lives);
 
         Character(Character const &_other);
