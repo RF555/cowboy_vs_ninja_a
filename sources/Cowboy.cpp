@@ -6,7 +6,7 @@ namespace ariel {
             Character(110),
             n_bullets(6) {}
 
-    Cowboy::Cowboy(const string &name, Point &point) :
+    Cowboy::Cowboy(const string &name, Point point) :
             Character(name, point, 110),
             n_bullets(6) {}
 

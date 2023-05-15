@@ -11,7 +11,7 @@ namespace ariel {
         /**
          * Starts with speed 14 and 100 lives.
          */
-        YoungNinja(const string &name, Point &point);
+        YoungNinja(const string &name, Point point);
 
         YoungNinja(YoungNinja const &_other);
 

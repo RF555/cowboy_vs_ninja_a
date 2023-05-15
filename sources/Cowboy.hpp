@@ -17,7 +17,7 @@ namespace ariel {
         /**
          * Starts with 6 bullets and 110 lives.
          */
-        Cowboy(const string &name, Point &point);
+        Cowboy(const string &name, Point point);
 
         Cowboy(Cowboy const &_other);
 

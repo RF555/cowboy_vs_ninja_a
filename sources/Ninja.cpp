@@ -10,7 +10,7 @@ namespace ariel {
             Character(lives),
             _speed(0) {}
 
-    Ninja::Ninja(const string &name, Point &point, int lives, int speed) :
+    Ninja::Ninja(const string &name, Point point, int lives, int speed) :
             Character(name, point, lives), _speed(0) {}
 
     Ninja::Ninja(const Ninja &_other) {}

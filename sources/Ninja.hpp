@@ -16,7 +16,7 @@ namespace ariel {
 
         Ninja(int lives,int speed);
 
-        Ninja(const string &name, Point &point, int lives, int speed);
+        Ninja(const string &name, Point point, int lives, int speed);
 
         Ninja(Ninja const &_other);
 

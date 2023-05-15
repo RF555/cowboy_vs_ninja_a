@@ -12,7 +12,7 @@ namespace ariel {
             _lives(lives),
             _name("None") {}
 
-    Character::Character(const string &name, Point &point, int lives) :
+    Character::Character(const string &name, Point point, int lives) :
             _location(point),
             _lives(lives),
             _name(name) {}

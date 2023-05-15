@@ -4,7 +4,7 @@ namespace ariel {
 
     YoungNinja::YoungNinja() {}
 
-    YoungNinja::YoungNinja(const string &name, Point &point)  :
+    YoungNinja::YoungNinja(const string &name, Point point)  :
             Ninja(name, point, 100, 14) {}
 
     YoungNinja::YoungNinja(const YoungNinja &_other) {}
