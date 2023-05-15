@@ -1,8 +1,13 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 namespace ariel {
+
     class Point {
         double x_coordinate, y_coordinate;
     public:
@@ -23,10 +28,10 @@ namespace ariel {
         double distance(Point _point2);
 
         /**
-         * Prints the x and y coordinates inside of parenthesis.
+         * @return A string of the x and y coordinates inside of parenthesis.
          *      Example: (x,y)
          */
-        void print();
+        string print();
 
         /**
          * Find the closest point to 'dest', that is not further then 'len' from 'src'.
@@ -38,6 +43,8 @@ namespace ariel {
         Point moveTowards(Point src, Point dest, double len);
 
         Point &operator=(Point const &_other);
+
+        explicit operator std::string() const;
 
     };
 

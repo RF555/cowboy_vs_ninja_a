@@ -21,7 +21,7 @@ namespace ariel {
         return 0;
     }
 
-    void Point::print() {}
+    std::string Point::print() { return string(); }
 
     Point Point::moveTowards(Point src, Point dest, double len) {
         return Point();
@@ -29,5 +29,9 @@ namespace ariel {
 
     Point &Point::operator=(const Point &_other) {
         return *this;
+    }
+
+    Point::operator std::string() const {
+        return string("(" + to_string(this->x_coordinate) + "," + to_string(this->y_coordinate) + ")");
     }
 }

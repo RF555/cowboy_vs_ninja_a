@@ -2,6 +2,7 @@
 #define CHARACTER_HPP
 
 
+#include <iostream>
 #include <string>
 
 #include "Point.hpp"
@@ -14,7 +15,7 @@ namespace ariel {
         int _lives;
         string _name;
 
-        virtual ostream &toPrint(ostream &output) const = 0;
+        virtual ostream &toPrint(ostream &output) = 0;
 
     public:
 
@@ -68,7 +69,9 @@ namespace ariel {
          *          Example (living Character): <name>, 100, (10,3)
          *          Example (dead Character): (<name>), (10,3)
          */
-        virtual string print() = 0;
+        virtual string print();
+
+        virtual explicit operator std::string() const;
 
 
     };

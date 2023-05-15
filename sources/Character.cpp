@@ -49,4 +49,12 @@ namespace ariel {
     string Character::getName() {
         return this->_name;
     }
+
+    string Character::print() {
+        return string();
+    }
+
+    Character::operator std::string() const {
+        return this->_name + ", " + to_string(this->_lives) + ", " + string(this->_location);
+    }
 }

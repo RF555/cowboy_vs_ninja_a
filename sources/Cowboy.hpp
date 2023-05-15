@@ -8,7 +8,7 @@ namespace ariel {
     private:
         int n_bullets;
 
-        virtual ostream &toPrint(ostream &output) const;
+        ostream &toPrint(ostream &output) override;
 
     public:
 
@@ -17,7 +17,7 @@ namespace ariel {
         /**
          * Starts with 6 bullets and 110 lives.
          */
-        Cowboy(const char *name, Point p);
+        Cowboy(const string &name, Point point);
 
         Cowboy(Cowboy const &_other);
 
@@ -30,7 +30,7 @@ namespace ariel {
         /**
          * @return A string of the Cowboy AS Character with 'C' before it's name.
          */
-        virtual string print();
+        string print() override;
 
         /**
          * Shoot the enemy - IF the cowboy is alive AND has bullets left:
@@ -49,6 +49,8 @@ namespace ariel {
          * Reloads 6 bullets.
          */
         virtual void reload();
+
+        explicit operator std::string() const override;
 
     };
 
