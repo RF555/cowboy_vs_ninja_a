@@ -1,13 +1,14 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 
+
 namespace ariel {
     class Point {
-        double x, y;
+        double x_coordinate, y_coordinate;
     public:
         Point();
 
-        Point(double _x, double y);
+        Point(double _x_coordinate, double _y_coordinate);
 
         Point(Point &_other);
 
@@ -16,10 +17,10 @@ namespace ariel {
         ~Point();
 
         /**
-         * @param _p A point.
+         * @param _point2 A point.
          * @return Distance between the 2 points.
          */
-        double distance(Point _p);
+        double distance(Point _point2);
 
         /**
          * Prints the x and y coordinates inside of parenthesis.
