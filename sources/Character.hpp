@@ -20,7 +20,7 @@ namespace ariel {
 
         Character();
 
-        Character::Character(int lives);
+        explicit Character(int lives);
 
         Character(string &name, Point _point, int lives);
 
