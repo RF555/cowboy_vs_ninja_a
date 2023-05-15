@@ -31,6 +31,10 @@ namespace ariel {
 
         virtual ~Character();
 
+        const Point &getLocation() const;
+
+        int getLives() const;
+
         Character &operator=(const Character &_other);
 
         // I/O operations:

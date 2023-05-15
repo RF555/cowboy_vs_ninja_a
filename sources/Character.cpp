@@ -57,4 +57,12 @@ namespace ariel {
     Character::operator std::string() const {
         return this->_name + ", " + to_string(this->_lives) + ", " + string(this->_location);
     }
+
+    const Point &Character::getLocation() const {
+        return _location;
+    }
+
+    int Character::getLives() const {
+        return _lives;
+    }
 }
