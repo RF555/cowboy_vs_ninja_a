@@ -2,6 +2,7 @@
 #define TRAINED_NINJA_HPP
 
 #include "Ninja.hpp"
+
 namespace ariel {
     class TrainedNinja : public Ninja {
     public:
@@ -11,7 +12,7 @@ namespace ariel {
         /**
          * Starts with speed 12 and 120 lives.
          */
-        TrainedNinja(const char *name, Point p);
+        TrainedNinja(const string &name, Point &point);
 
         TrainedNinja(TrainedNinja const &_other);
 
@@ -19,8 +20,11 @@ namespace ariel {
 
         TrainedNinja(TrainedNinja &&_other) noexcept;
 
-
         ~TrainedNinja();
+
+        void slash(Character *enemy) override;
+
+        void move(Character *enemy) override;
     };
 
 }
