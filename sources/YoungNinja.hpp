@@ -11,7 +11,7 @@ namespace ariel {
         /**
          * Starts with speed 14 and 100 lives.
          */
-        YoungNinja(const char *name, Point p);
+        YoungNinja(const string &name, Point &point);
 
         YoungNinja(YoungNinja const &_other);
 
@@ -20,6 +20,10 @@ namespace ariel {
         YoungNinja(YoungNinja &&_other) noexcept;
 
         ~YoungNinja();
+
+        void slash(Character *enemy) override;
+
+        void move(Character *enemy) override;
     };
 
 }
