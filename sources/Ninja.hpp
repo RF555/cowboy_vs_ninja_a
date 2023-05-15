@@ -24,6 +24,8 @@ namespace ariel {
 
         Ninja(Ninja &&_other) noexcept;
 
+        int getSpeed() const;
+
         virtual ~Ninja();
 
         /**

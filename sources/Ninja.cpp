@@ -33,4 +33,8 @@ namespace ariel {
         return "N " + Character::operator std::string();
     }
 
+    int Ninja::getSpeed() const {
+        return _speed;
+    }
+
 }
