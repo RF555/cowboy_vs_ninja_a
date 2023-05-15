@@ -74,6 +74,7 @@ TEST_CASE("Build YoungNinja") {
     ninj2.hit(4);
     CHECK_EQ(ninj2.getLives(), 96);
 }
+
 TEST_CASE("Build TrainedNinja") {
     TrainedNinja ninj1;
     CHECK_EQ(ninj1.getName(), "None");
@@ -111,3 +112,4 @@ TEST_CASE("Build OldNinja") {
     ninj2.hit(10);
     CHECK_EQ(ninj2.getLives(), 140);
 }
+
