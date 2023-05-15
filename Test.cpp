@@ -35,3 +35,79 @@ TEST_CASE("Points distance") {
     CHECK(a.distance(g) == 5);
     CHECK(g.distance(a) == 5);
 }
+
+TEST_CASE("Build Cowboy") {
+    Cowboy cboy1;
+    CHECK_EQ(cboy1.getName(), "None");
+    CHECK_EQ(cboy1.getLives(), 110);
+    CHECK_EQ(cboy1.getLocation().getX(), 0);
+    CHECK_EQ(cboy1.getLocation().getY(), 0);
+    CHECK_EQ(cboy1.getNBullets(), 6);
+    cboy1.hit(4);
+    CHECK_EQ(cboy1.getLives(), 106);
+    Cowboy cboy2("Roey", Point(5, 3));
+    CHECK_EQ(cboy2.getName(), "Roey");
+    CHECK_EQ(cboy2.getLives(), 110);
+    CHECK_EQ(cboy2.getLocation().getX(), 5);
+    CHECK_EQ(cboy2.getLocation().getY(), 3);
+    CHECK_EQ(cboy2.getNBullets(), 6);
+    cboy2.hit(4);
+    CHECK_EQ(cboy2.getLives(), 106);
+
+}
+
+TEST_CASE("Build YoungNinja") {
+    YoungNinja ninj1;
+    CHECK_EQ(ninj1.getName(), "None");
+    CHECK_EQ(ninj1.getLives(), 100);
+    CHECK_EQ(ninj1.getLocation().getX(), 0);
+    CHECK_EQ(ninj1.getLocation().getY(), 0);
+    CHECK_EQ(ninj1.getSpeed(), 14);
+    ninj1.hit(4);
+    CHECK_EQ(ninj1.getLives(), 96);
+    YoungNinja ninj2("San", Point(5.3, 2.09));
+    CHECK_EQ(ninj2.getName(), "San");
+    CHECK_EQ(ninj2.getLives(), 100);
+    CHECK_EQ(ninj2.getLocation().getX(), 5.3);
+    CHECK_EQ(ninj2.getLocation().getY(), 2.09);
+    CHECK_EQ(ninj2.getSpeed(), 14);
+    ninj2.hit(4);
+    CHECK_EQ(ninj2.getLives(), 96);
+}
+TEST_CASE("Build TrainedNinja") {
+    TrainedNinja ninj1;
+    CHECK_EQ(ninj1.getName(), "None");
+    CHECK_EQ(ninj1.getLives(), 120);
+    CHECK_EQ(ninj1.getLocation().getX(), 0);
+    CHECK_EQ(ninj1.getLocation().getY(), 0);
+    CHECK_EQ(ninj1.getSpeed(), 12);
+    ninj1.hit(15);
+    CHECK_EQ(ninj1.getLives(), 105);
+    TrainedNinja ninj2("San", Point(5.3, 2.09));
+    CHECK_EQ(ninj2.getName(), "San");
+    CHECK_EQ(ninj2.getLives(), 120);
+    CHECK_EQ(ninj2.getLocation().getX(), 5.3);
+    CHECK_EQ(ninj2.getLocation().getY(), 2.09);
+    CHECK_EQ(ninj2.getSpeed(), 12);
+    ninj2.hit(10);
+    CHECK_EQ(ninj2.getLives(), 110);
+}
+
+TEST_CASE("Build OldNinja") {
+    OldNinja ninj1;
+    CHECK_EQ(ninj1.getName(), "None");
+    CHECK_EQ(ninj1.getLives(), 150);
+    CHECK_EQ(ninj1.getLocation().getX(), 0);
+    CHECK_EQ(ninj1.getLocation().getY(), 0);
+    CHECK_EQ(ninj1.getSpeed(), 8);
+    ninj1.hit(15);
+    CHECK_EQ(ninj1.getLives(), 135);
+    OldNinja ninj2("San", Point(5.3, 2.09));
+    CHECK_EQ(ninj2.getName(), "San");
+    CHECK_EQ(ninj2.getLives(), 150);
+    CHECK_EQ(ninj2.getLocation().getX(), 5.3);
+    CHECK_EQ(ninj2.getLocation().getY(), 2.09);
+    CHECK_EQ(ninj2.getSpeed(), 8);
+    ninj2.hit(10);
+    CHECK_EQ(ninj2.getLives(), 140);
+}
