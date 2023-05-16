@@ -24,18 +24,27 @@ namespace ariel {
                     (this->getY() - _point2.getY()) * (this->getY() - _point2.getY()));
     }
 
-    std::string Point::print() { return string(); }
+    std::string Point::print() { return string(*this); }
 
-    Point Point::moveTowards(Point &src, Point &dest, double len) {
-        return Point();
+    Point moveTowards(Point &src, Point &dest, double len) {
+        double _dist = src.distance(dest);
+        if (_dist <= len) {
+            return Point(dest);
+        } else {
+            Point vec(dest.getX() - src.getX(), dest.getY() - src.getY());
+            Point u_vec(vec.getX() / _dist, vec.getY() / _dist);
+            return Point(src.getX() + u_vec.getX() * len, src.getY() + u_vec.getY() * len);
+        }
     }
 
     Point &Point::operator=(const Point &_other) {
         return *this;
     }
 
-    Point::operator std::string() const {
-        return string("(" + to_string(this->x_coordinate) + "," + to_string(this->y_coordinate) + ")");
+    Point::operator std::string() {
+        ostringstream s;
+        toPrint(s);
+        return s.str();
     }
 
     double Point::getX() const {
@@ -45,4 +54,13 @@ namespace ariel {
     double Point::getY() const {
         return y_coordinate;
     }
+
+    ostream &Point::toPrint(ostream &output) {
+        return output << "(" << this->x_coordinate << "," << this->y_coordinate << ")";
+    }
+
+    std::ostream &operator<<(ostream &output, const Point &_point) {
+        return output << "(" << _point.x_coordinate << "," << _point.y_coordinate << ")";
+    }
+
 }

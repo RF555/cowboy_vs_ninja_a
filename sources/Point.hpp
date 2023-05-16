@@ -2,6 +2,7 @@
 #define POINT_HPP
 
 #include <iostream>
+#include <sstream>
 #include <string>
 
 using namespace std;
@@ -9,7 +10,11 @@ using namespace std;
 namespace ariel {
 
     class Point {
+    private:
         double x_coordinate, y_coordinate;
+
+        virtual ostream &toPrint(ostream &output);
+
     public:
         Point();
 
@@ -44,11 +49,13 @@ namespace ariel {
          * @param len Distance from the source point.
          * @return A point between 'src' and 'dest'.
          */
-        Point moveTowards(Point &src, Point &dest, double len);
+        friend Point moveTowards(Point &src, Point &dest, double len);
 
         Point &operator=(Point const &_other);
 
-        explicit operator std::string() const;
+        explicit operator std::string();
+
+        friend std::ostream &operator<<(ostream &output, const Point &_point);
 
     };
 

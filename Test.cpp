@@ -11,7 +11,6 @@ TEST_CASE("Build Point") {
     Point b(1.003, 2);
     CHECK_EQ(b.getX(), 1.003);
     CHECK_EQ(b.getY(), 2);
-
 }
 
 TEST_CASE("Points distance") {
@@ -34,6 +33,31 @@ TEST_CASE("Points distance") {
     Point g(3, 4);
     CHECK(a.distance(g) == 5);
     CHECK(g.distance(a) == 5);
+}
+
+TEST_CASE("Test Point moveTowards") {
+    Point a;
+    Point b(0, 1);
+    Point c(0, 2);
+    Point d(0, 3);
+    Point ab05 = moveTowards(a, b, 0.5);
+    CHECK_EQ(ab05.getX(), 0);
+    CHECK_EQ(ab05.getY(), 0.5);
+    Point ab09 = moveTowards(a, b, 0.9);
+    CHECK_EQ(ab09.getX(), 0);
+    CHECK_EQ(ab09.getY(), 0.9);
+    Point ba099 = moveTowards(b, a, 0.99);
+    cout << "ba099: " << ba099 << endl;
+    CHECK_EQ(ba099.getX(), 0);
+    CHECK_EQ(ba099.getY(), 0.01);
+    Point ca08 = moveTowards(c, a, 0.8);
+    cout << "ca08: " << ca08 << endl;
+    CHECK_EQ(ca08.getX(), 0);
+    CHECK_EQ(ca08.getY(), 1.2);
+    Point db08 = moveTowards(d, b, 0.8);
+    cout << "db08: " << db08 << endl;
+    CHECK_EQ(db08.getX(), 0);
+    CHECK_EQ(db08.getY(), 2.2);
 }
 
 TEST_CASE("Build Cowboy") {
