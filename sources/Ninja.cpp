@@ -23,15 +23,11 @@ namespace ariel {
     Ninja::~Ninja() {}
 
     ostream &Ninja::toPrint(ostream &output) {
-        return output << this->print();
-    }
-
-    string Ninja::print() {
-        return Character::print();
-    }
-
-    Ninja::operator std::string() const {
-        return "N " + Character::operator std::string();
+        if (isAlive()) {
+            return output << "N " << this->_name << ", " << this->_lives << ", " << this->_location;
+        } else {
+            return output << "N " << "(" << this->_name << "), " << ", " << this->_location;
+        }
     }
 
     int Ninja::getSpeed() const {

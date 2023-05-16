@@ -8,7 +8,6 @@ namespace ariel {
     private:
         int _speed;
 
-        virtual ostream &toPrint(ostream &output) override;
 
     public:
 
@@ -29,11 +28,6 @@ namespace ariel {
         virtual ~Ninja();
 
         /**
-         * @return A string of the Ninja AS Character with 'N' before it's name.
-         */
-        string print() override;
-
-        /**
          * Moves the ninja towards the enemy the distance equivalent to it's speed.
          * @param enemy Reference of an enemy to move towards to.
          */
@@ -46,7 +40,7 @@ namespace ariel {
          */
         virtual void slash(Character *enemy) = 0;
 
-        explicit operator std::string() const override;
+        virtual ostream &toPrint(ostream &output) override;
 
     };
 

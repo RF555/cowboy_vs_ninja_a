@@ -99,6 +99,8 @@ TEST_CASE("Build YoungNinja") {
     CHECK_EQ(ninj2.getSpeed(), 14);
     ninj2.hit(4);
     CHECK_EQ(ninj2.getLives(), 96);
+    cout<<ninj1.print()<<endl;
+    cout<<ninj2<<endl;
 }
 
 TEST_CASE("Build TrainedNinja") {
@@ -118,6 +120,8 @@ TEST_CASE("Build TrainedNinja") {
     CHECK_EQ(ninj2.getSpeed(), 12);
     ninj2.hit(10);
     CHECK_EQ(ninj2.getLives(), 110);
+    cout<<ninj1.print()<<endl;
+    cout<<ninj2<<endl;
 }
 
 TEST_CASE("Build OldNinja") {
@@ -137,5 +141,7 @@ TEST_CASE("Build OldNinja") {
     CHECK_EQ(ninj2.getSpeed(), 8);
     ninj2.hit(10);
     CHECK_EQ(ninj2.getLives(), 140);
+    cout<<ninj1.print()<<endl;
+    cout<<ninj2<<endl;
 }
 
