@@ -8,7 +8,6 @@ namespace ariel {
     private:
         int n_bullets;
 
-        ostream &toPrint(ostream &output) override;
 
     public:
 
@@ -29,10 +28,6 @@ namespace ariel {
 
         int getNBullets() const;
 
-        /**
-         * @return A string of the Cowboy AS Character with 'C' before it's name.
-         */
-        string print() override;
 
         /**
          * Shoot the enemy - IF the cowboy is alive AND has bullets left:
@@ -52,7 +47,7 @@ namespace ariel {
          */
         virtual void reload();
 
-        explicit operator std::string() const override;
+        ostream &toPrint(ostream &output) override;
 
     };
 

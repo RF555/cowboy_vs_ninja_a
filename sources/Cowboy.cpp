@@ -21,26 +21,14 @@ namespace ariel {
     Cowboy::~Cowboy() {}
 
     ostream &Cowboy::toPrint(ostream &output) {
-        return output << this->print();
-    }
-
-    string Cowboy::print() {
-        return std::string();
+        return output << "C " << this->_name << ", " << this->_lives << ", " << this->_location;
     }
 
     void Cowboy::shoot(Character *enemy) {}
 
-    bool Cowboy::hasboolets() {
-        return false;
-    }
+    bool Cowboy::hasboolets() { return false; }
 
     void Cowboy::reload() { if (this->n_bullets == 0) this->n_bullets = 6; }
 
-    Cowboy::operator std::string() const {
-        return "C " + Character::operator std::string();
-    }
-
-    int Cowboy::getNBullets() const {
-        return n_bullets;
-    }
+    int Cowboy::getNBullets() const { return n_bullets; }
 }

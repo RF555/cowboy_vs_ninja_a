@@ -10,12 +10,15 @@
 using namespace std;
 namespace ariel {
     class Character {
-    private:
+
+    protected:
+
         Point _location;
         int _lives;
         string _name;
 
-        virtual ostream &toPrint(ostream &output);
+    private:
+
 
     public:
 
@@ -31,16 +34,14 @@ namespace ariel {
 
         virtual ~Character();
 
-        Point &getLocation() ;
+        Point &getLocation();
 
         int getLives() const;
 
         Character &operator=(const Character &_other);
 
         // I/O operations:
-        friend std::ostream &operator<<(ostream &output, const Character *_other);
-
-//        friend std::istream &operator>>(istream &input, Character *_other);
+        friend std::ostream &operator<<(ostream &output, Character &_other);
 
         /**
          * @return Is the character alive (has more then 0 lives).
@@ -75,8 +76,9 @@ namespace ariel {
          */
         virtual string print();
 
-        virtual explicit operator std::string() ;
+        virtual explicit operator std::string();
 
+        virtual ostream &toPrint(ostream &output) = 0;
 
     };
 

@@ -26,13 +26,9 @@ namespace ariel {
 
     Character::~Character() {}
 
-    Character &Character::operator=(const Character &_other) {
-        return *this;
-    }
+    Character &Character::operator=(const Character &_other) { return *this; }
 
-    bool Character::isAlive() {
-        return this->_lives > 0;
-    }
+    bool Character::isAlive() { return this->_lives > 0; }
 
     double Character::distance(Character &_other) {
         return this->getLocation().distance(_other.getLocation());
@@ -46,13 +42,9 @@ namespace ariel {
         }
     }
 
-    string Character::getName() {
-        return this->_name;
-    }
+    string Character::getName() { return this->_name; }
 
-    string Character::print() {
-        return string(*this);
-    }
+    string Character::print() { return string(*this); }
 
     Character::operator std::string() {
         ostringstream s;
@@ -60,19 +52,11 @@ namespace ariel {
         return s.str();
     }
 
-    Point &Character::getLocation() {
-        return _location;
-    }
+    Point &Character::getLocation() { return _location; }
 
-    int Character::getLives() const {
-        return _lives;
-    }
+    int Character::getLives() const { return _lives; }
 
-    ostream &Character::toPrint(ostream &output) {
-        return output << this->_name << ", " << this->_lives << ", " << this->_location;
-    }
-
-    std::ostream &operator<<(ostream &output, const Character *_other) {
-        return output << _other->_name << ", " << _other->_lives << ", " << _other->_location;
+    std::ostream &operator<<(ostream &output, Character &_other) {
+        return _other.toPrint(output);
     }
 }
