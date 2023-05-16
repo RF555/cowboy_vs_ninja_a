@@ -21,7 +21,11 @@ namespace ariel {
     Cowboy::~Cowboy() {}
 
     ostream &Cowboy::toPrint(ostream &output) {
-        return output << "C " << this->_name << ", " << this->_lives << ", " << this->_location;
+        if (isAlive()) {
+            return output << "C " << this->_name << ", " << this->_lives << ", " << this->_location;
+        } else {
+            return output << "C " << "(" << this->_name << "), " << ", " << this->_location;
+        }
     }
 
     void Cowboy::shoot(Character *enemy) {}
