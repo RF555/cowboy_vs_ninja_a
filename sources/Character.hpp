@@ -15,7 +15,7 @@ namespace ariel {
         int _lives;
         string _name;
 
-        virtual ostream &toPrint(ostream &output) = 0;
+        virtual ostream &toPrint(ostream &output);
 
     public:
 
@@ -31,7 +31,7 @@ namespace ariel {
 
         virtual ~Character();
 
-        const Point &getLocation() const;
+        Point &getLocation() ;
 
         int getLives() const;
 
@@ -51,7 +51,7 @@ namespace ariel {
          * @param _other Reference to another character.
          * @return Distance between the 2 characters.
          */
-        double distance(Character *_other);
+        double distance(Character &_other);
 
         /**
          * Reduces the character's lives by the number of hits.
@@ -75,7 +75,7 @@ namespace ariel {
          */
         virtual string print();
 
-        virtual explicit operator std::string() const;
+        virtual explicit operator std::string() ;
 
 
     };

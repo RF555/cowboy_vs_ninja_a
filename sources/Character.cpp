@@ -34,8 +34,8 @@ namespace ariel {
         return this->_lives > 0;
     }
 
-    double Character::distance(Character *_other) {
-        return 0;
+    double Character::distance(Character &_other) {
+        return this->getLocation().distance(_other.getLocation());
     }
 
     void Character::hit(int n) {
@@ -51,18 +51,28 @@ namespace ariel {
     }
 
     string Character::print() {
-        return string();
+        return string(*this);
     }
 
-    Character::operator std::string() const {
-        return this->_name + ", " + to_string(this->_lives) + ", " + string(this->_location);
+    Character::operator std::string() {
+        ostringstream s;
+        toPrint(s);
+        return s.str();
     }
 
-    const Point &Character::getLocation() const {
+    Point &Character::getLocation() {
         return _location;
     }
 
     int Character::getLives() const {
         return _lives;
+    }
+
+    ostream &Character::toPrint(ostream &output) {
+        return output << this->_name << ", " << this->_lives << ", " << this->_location;
+    }
+
+    std::ostream &operator<<(ostream &output, const Character *_other) {
+        return output << _other->_name << ", " << _other->_lives << ", " << _other->_location;
     }
 }
