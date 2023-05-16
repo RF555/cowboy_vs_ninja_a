@@ -10,15 +10,19 @@
 using namespace std;
 namespace ariel {
     class Character {
-
-    protected:
+    private:
 
         Point _location;
         int _lives;
         string _name;
 
-    private:
+    protected:
 
+        void setLocation(const Point &location);
+
+        void setLives(int lives);
+
+        void setName(const string &name);
 
     public:
 
@@ -40,7 +44,11 @@ namespace ariel {
 
         Character &operator=(const Character &_other);
 
-        // I/O operations:
+        Character &operator=(Character &&_other) noexcept;
+
+        bool operator==(Character&_other);
+
+        // I/O operation:
         friend std::ostream &operator<<(ostream &output, Character &_other);
 
         /**

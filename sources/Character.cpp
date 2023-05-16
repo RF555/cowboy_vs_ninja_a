@@ -28,6 +28,13 @@ namespace ariel {
 
     Character &Character::operator=(const Character &_other) { return *this; }
 
+    Character &Character::operator=(Character &&_other) noexcept {
+        this->_lives = _other.getLives();
+        this->_name = _other.getName();
+        this->_location = _other.getLocation();
+        return *this;
+    }
+
     bool Character::isAlive() { return this->_lives > 0; }
 
     double Character::distance(Character &_other) {
@@ -59,4 +66,21 @@ namespace ariel {
     std::ostream &operator<<(ostream &output, Character &_other) {
         return _other.toPrint(output);
     }
+
+    void Character::setLocation(const Point &location) {
+        _location = location;
+    }
+
+    void Character::setLives(int lives) {
+        _lives = lives;
+    }
+
+    void Character::setName(const string &name) {
+        _name = name;
+    }
+
+    bool Character::operator==(Character &_other) {
+        return &(*this) == &_other;
+    }
+
 }

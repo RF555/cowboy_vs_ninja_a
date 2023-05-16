@@ -6,26 +6,31 @@
 namespace ariel {
     class Ninja : public Character {
     private:
-        int _speed;
+        int _speed{};
 
+    protected:
+
+        void setSpeed(int speed);
 
     public:
 
         Ninja();
 
-        Ninja(int lives,int speed);
+        Ninja(int lives, int speed);
 
         Ninja(const string &name, Point point, int lives, int speed);
 
         Ninja(Ninja const &_other);
 
-        Ninja(Ninja *_other);
-
         Ninja(Ninja &&_other) noexcept;
 
         int getSpeed() const;
 
-        virtual ~Ninja();
+        ~Ninja() override;
+
+        Ninja &operator=(const Ninja &_other);
+
+        Ninja &operator=(Ninja &&_other) noexcept;
 
         /**
          * Moves the ninja towards the enemy the distance equivalent to it's speed.
@@ -40,7 +45,7 @@ namespace ariel {
          */
         virtual void slash(Character *enemy) = 0;
 
-        virtual ostream &toPrint(ostream &output) override;
+        ostream &toPrint(ostream &output) override;
 
     };
 

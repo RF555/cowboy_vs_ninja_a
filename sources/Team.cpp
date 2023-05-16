@@ -31,4 +31,12 @@ namespace ariel {
     Team &Team::operator=(const Team &_other) {
         return *this;
     }
+
+    Team &Team::operator=(Team &&_other) noexcept {
+        return *this;
+    }
+
+    bool Team::operator==(Team &_other) {
+        return &(*this) == &_other;
+    }
 }

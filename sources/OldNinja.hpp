@@ -16,11 +16,14 @@ namespace ariel {
 
         OldNinja(OldNinja const &_other);
 
-        OldNinja(OldNinja *_other);
-
         OldNinja(OldNinja &&_other) noexcept;
 
-        ~OldNinja();
+        ~OldNinja() override;
+
+        OldNinja &operator=(const OldNinja &_other);
+
+        OldNinja &operator=(OldNinja &&_other) noexcept;
+
 
         void slash(Character *enemy) override;
 

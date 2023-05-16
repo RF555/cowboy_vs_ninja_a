@@ -28,7 +28,7 @@ namespace ariel {
 
         double getY() const;
 
-        ~Point();
+        virtual ~Point();
 
         /**
          * @param _point2 A point.
@@ -52,6 +52,8 @@ namespace ariel {
         friend Point moveTowards(Point &src, Point &dest, double len);
 
         Point &operator=(Point const &_other);
+
+        Point &operator=(Point &&_other) noexcept ;
 
         explicit operator std::string();
 

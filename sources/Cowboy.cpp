@@ -14,17 +14,15 @@ namespace ariel {
             Character(_other),
             n_bullets(6) {}
 
-    Cowboy::Cowboy(Cowboy *_other) {}
-
     Cowboy::Cowboy(Cowboy &&_other) noexcept {}
 
-    Cowboy::~Cowboy() {}
+    Cowboy::~Cowboy() = default;
 
     ostream &Cowboy::toPrint(ostream &output) {
         if (isAlive()) {
-            return output << "C " << this->_name << ", " << this->_lives << ", " << this->_location;
+            return output << "C " << this->getName() << ", " << this->getLives() << ", " << this->getLocation();
         } else {
-            return output << "C " << "(" << this->_name << "), " << ", " << this->_location;
+            return output << "C " << "(" << this->getName() << "), " << ", " << this->getLocation();
         }
     }
 
@@ -35,4 +33,14 @@ namespace ariel {
     void Cowboy::reload() { if (this->n_bullets == 0) this->n_bullets = 6; }
 
     int Cowboy::getNBullets() const { return n_bullets; }
+
+    Cowboy &Cowboy::operator=(const Cowboy &_other) { return *this; }
+
+    Cowboy &Cowboy::operator=(Cowboy &&_other) noexcept {
+        this->setName(_other.getName());
+        this->setLives(_other.getLives());
+        this->setLocation(_other.getLocation());
+        this->n_bullets = _other.getNBullets();
+        return *this;
+    }
 }

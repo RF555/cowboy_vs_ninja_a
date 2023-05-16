@@ -14,24 +14,32 @@ namespace ariel {
             Character(name, point, lives),
             _speed(speed) {}
 
-    Ninja::Ninja(const Ninja &_other) {}
-
-    Ninja::Ninja(Ninja *_other) {}
+    Ninja::Ninja(const Ninja &_other) : Character(_other), _speed(_other._speed) {}
 
     Ninja::Ninja(Ninja &&_other) noexcept {}
 
-    Ninja::~Ninja() {}
+    Ninja::~Ninja() = default;
 
     ostream &Ninja::toPrint(ostream &output) {
         if (isAlive()) {
-            return output << "N " << this->_name << ", " << this->_lives << ", " << this->_location;
+            return output << "N " << this->getName() << ", " << this->getLives() << ", " << this->getLocation();
         } else {
-            return output << "N " << "(" << this->_name << "), " << ", " << this->_location;
+            return output << "N " << "(" << this->getName() << "), " << ", " << this->getLocation();
         }
     }
 
-    int Ninja::getSpeed() const {
-        return _speed;
+    int Ninja::getSpeed() const { return _speed; }
+
+    Ninja &Ninja::operator=(const Ninja &_other) { return *this; }
+
+    Ninja &Ninja::operator=(Ninja &&_other) noexcept {
+        this->setName(_other.getName());
+        this->setLives(_other.getLives());
+        this->setLocation(_other.getLocation());
+        this->_speed = _other.getSpeed();
+        return *this;
     }
+
+    void Ninja::setSpeed(int speed) { _speed = speed; }
 
 }

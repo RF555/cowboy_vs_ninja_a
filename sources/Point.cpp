@@ -41,6 +41,12 @@ namespace ariel {
         return *this;
     }
 
+    Point &Point::operator=(Point &&_other) noexcept {
+        this->x_coordinate = _other.getX();
+        this->y_coordinate = _other.getY();
+        return *this;
+    }
+
     Point::operator std::string() {
         ostringstream s;
         toPrint(s);

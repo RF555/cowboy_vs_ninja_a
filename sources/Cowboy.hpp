@@ -6,8 +6,7 @@
 namespace ariel {
     class Cowboy : public Character {
     private:
-        int n_bullets;
-
+        int n_bullets{};
 
     public:
 
@@ -20,11 +19,13 @@ namespace ariel {
 
         Cowboy(Cowboy const &_other);
 
-        Cowboy(Cowboy *_other);
-
         Cowboy(Cowboy &&_other) noexcept;
 
-        virtual ~Cowboy();
+        ~Cowboy() override;
+
+        Cowboy &operator=(const Cowboy &_other);
+
+        Cowboy &operator=(Cowboy &&_other) noexcept;
 
         int getNBullets() const;
 

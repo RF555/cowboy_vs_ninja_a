@@ -18,8 +18,9 @@ namespace ariel {
      */
     class Team {
 
+        int size;
         Character *_leader;
-        vector<Character> members;
+        vector<Character *> members;
 
 //        vector<Cowboy> _cowboys;
 //        vector<Ninja> _ninjas;
@@ -36,6 +37,10 @@ namespace ariel {
         Team(Team &&_other) noexcept;
 
         virtual ~Team();
+
+        Team &operator=(Team const &_other);
+
+        Team &operator=(Team &&_other) noexcept;
 
         /**
          * Adds the Character to the team.
@@ -66,7 +71,8 @@ namespace ariel {
          */
         virtual string print();
 
-        virtual Team &operator=(Team const &_other);
+        bool operator==(Team &_other);
+
     };
 
     /**
@@ -82,7 +88,11 @@ namespace ariel {
 
         Team2(Team2 &&_other) noexcept;
 
-        ~Team2();
+        ~Team2() override;
+
+        Team2 &operator=(Team2 const &_other);
+
+        Team2 &operator=(Team2 &&_other) noexcept;
     };
 
     /**
@@ -94,11 +104,15 @@ namespace ariel {
 
         SmartTeam(Character &leader);
 
-        SmartTeam(Team2 const &_other);
+        SmartTeam(SmartTeam const &_other);
 
-        SmartTeam(Team2 &&_other) noexcept;
+        SmartTeam(SmartTeam &&_other) noexcept;
 
-        ~SmartTeam();
+        ~SmartTeam() override;
+
+        SmartTeam &operator=(SmartTeam const &_other);
+
+        SmartTeam &operator=(SmartTeam &&_other) noexcept;
     };
 }
 #endif //TEAM_HPP
